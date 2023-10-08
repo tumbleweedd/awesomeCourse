@@ -38,6 +38,8 @@ func main() {
 	var nameTwo string
 	nameTwo = returnMyName("Duck")
 	printMyMessage(nameTwo)
+
+	fmt.Println(findMax(1, 2, 34, 4, 5))
 }
 
 func print() {
@@ -60,4 +62,20 @@ func fmtSprintfExample(name string, balance int) string {
 	// по результату выполнения функции у нас возвращается форматированная нами строка
 	// эта строка подставляется после return и возвращается
 	return fmt.Sprintf("Привет, %s. Твой баланс = %d", name, balance)
+}
+
+// неограниченное кол-во аргументов функции
+func findMax(numbers ...int) int {
+	if len(numbers) == 0 {
+		return 0
+	}
+
+	max := numbers[0]
+
+	for i := 0; i < len(numbers); i++ {
+		if numbers[i] > max {
+			max = numbers[i]
+		}
+	}
+	return max
 }
